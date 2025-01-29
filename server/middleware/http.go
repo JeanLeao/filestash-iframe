@@ -72,8 +72,8 @@ func IndexHeaders(fn HandlerFunc) HandlerFunc {
 		cspHeader += "form-action 'self'; base-uri 'self'; "
 		cspHeader += "frame-src 'self'; "
 		if ori := Config.Get("features.protection.iframe").String(); ori == "" {
-			cspHeader += "frame-ancestors 'none';"
-			header.Set("X-Frame-Options", "DENY")
+			// cspHeader += "frame-ancestors 'none';"
+			// header.Set("X-Frame-Options", "DENY")
 		} else {
 			cspHeader += fmt.Sprintf("frame-ancestors %s;", ori)
 		}
